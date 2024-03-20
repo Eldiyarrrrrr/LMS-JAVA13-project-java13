@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Group {
-    private int Id;
+    private long Id;
     private String nameGroup;
     private String discription;
     public List<Lessons> lessons = new ArrayList<>();
@@ -14,7 +14,7 @@ public class Group {
 
     }
 
-    public Group(int id, String nameGroup, String discription, List<Lessons> lessons, List<Student> students) {
+    public Group(long id, String nameGroup, String discription, List<Lessons> lessons, List<Student> students) {
         Id = id;
         this.nameGroup = nameGroup;
         this.discription = discription;
@@ -22,11 +22,11 @@ public class Group {
         this.students = students;
     }
 
-    public int getId() {
+    public long getId() {
         return Id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         Id = id;
     }
 

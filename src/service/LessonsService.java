@@ -1,11 +1,17 @@
 package service;
 
+import group.Lessons;
+
+
+import java.util.List;
+
 public interface LessonsService {
-    void addnewLessontoGroup();
 
-    void getLessonbyName();
+    List<Lessons> addLesson(String groupName);
 
-    void getalllesbygrname();
+    Lessons getLesson(String groupName);
 
-    void deletelessonbyId();
+    List<Lessons> getAllLessonByGroupName(String groupName);
+
+    String deleteLessonById(long id);
 }

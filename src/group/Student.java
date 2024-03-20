@@ -1,43 +1,37 @@
 package group;
 
-import java.util.ArrayList;
-import java.util.List;
+import enums.Gender;
+
+import java.util.Objects;
 
 public class Student {
-    private int Id;
-    private String nameGroup;
+    private long id;
     private String firstName;
     private String lastName;
+    private String phoneNumber;
     private String email;
     private String password;
-    private String gender;
-    List<Group> groups = new ArrayList<>();
+    private Gender gender;
 
-    public Student(int id, String nameGroup, String firstName, String lastName, String email, String password, String gender, List<Group> groups) {
-        Id = id;
-        this.nameGroup = nameGroup;
+    public Student() {
+    }
+
+    public Student(long id, String firstName, String lastName, String phoneNumber, String email, String password, Gender gender) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
         this.email = email;
         this.password = password;
         this.gender = gender;
-        this.groups = groups;
     }
 
-    public int getId() {
-        return Id;
+    public long getId() {
+        return id;
     }
 
-    public void setId(int id) {
-        Id = id;
-    }
-
-    public String getNameGroup() {
-        return nameGroup;
-    }
-
-    public void setNameGroup(String nameGroup) {
-        this.nameGroup = nameGroup;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -56,6 +50,14 @@ public class Student {
         this.lastName = lastName;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -72,33 +74,36 @@ public class Student {
         this.password = password;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
-    }
-
-    public List<Group> getGroups() {
-        return groups;
-    }
-
-    public void setGroups(List<Group> groups) {
-        this.groups = groups;
     }
 
     @Override
     public String toString() {
-        return "Student{" +
-                "Id=" + Id +
-                ", nameGroup='" + nameGroup + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", gender='" + gender + '\'' +
-                ", groups=" + groups +
-                '}';
+        return ": " +
+                "id=" + id +
+                " firstName='" + firstName + '\'' +
+                " lastName='" + lastName + '\'' +
+                " phoneNumber='" + phoneNumber + '\'' +
+                " email='" + email + '\'' +
+                " password='" + password + '\'' +
+                " gender=" + gender + "\n";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return id == (student.id) && Objects.equals(firstName, student.firstName) && Objects.equals(lastName, student.lastName) && Objects.equals(phoneNumber, student.phoneNumber) && Objects.equals(email, student.email) && Objects.equals(password, student.password) && gender == student.gender;    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(id, firstName, lastName, phoneNumber, email, password, gender);
+        return result;
     }
 }

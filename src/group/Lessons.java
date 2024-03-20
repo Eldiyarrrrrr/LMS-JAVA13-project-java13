@@ -1,61 +1,63 @@
 package group;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Objects;
 
 public class Lessons {
-    private int Id;
-    private String lessonsName;
-    private String taskdescription;
+    private long id;
+    private String nameLesson;
+    private String descriptionLesson;
 
-    List<Group> groups = new ArrayList<>();
-
-    public Lessons(int id, String lessonsName, String taskdescription, List<Group> groups) {
-        Id = id;
-        this.lessonsName = lessonsName;
-        this.taskdescription = taskdescription;
-        this.groups = groups;
+    public Lessons() {
     }
 
-    public int getId() {
-        return Id;
+    public Lessons(long id, String nameLesson, String descriptionLesson) {
+        this.id = id;
+        this.nameLesson = nameLesson;
+        this.descriptionLesson = descriptionLesson;
     }
 
-    public void setId(int id) {
-        Id = id;
+    public long getId() {
+        return id;
     }
 
-    public String getLessonsName() {
-        return lessonsName;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public void setLessonsName(String lessonsName) {
-        this.lessonsName = lessonsName;
+    public String getNameLesson() {
+        return nameLesson;
     }
 
-    public String getTaskdescription() {
-        return taskdescription;
+    public void setNameLesson(String nameLesson) {
+        this.nameLesson = nameLesson;
     }
 
-    public void setTaskdescription(String taskdescription) {
-        this.taskdescription = taskdescription;
+    public String getDescriptionLesson() {
+        return descriptionLesson;
     }
 
-    public List<Group> getGroups() {
-        return groups;
-    }
-
-    public void setGroups(List<Group> groups) {
-        this.groups = groups;
+    public void setDescriptionLesson(String descriptionLesson) {
+        this.descriptionLesson = descriptionLesson;
     }
 
     @Override
     public String toString() {
-        return "Lessons{" +
-                "Id=" + Id +
-                ", lessonsName='" + lessonsName + '\'' +
-                ", taskdescription='" + taskdescription + '\'' +
-                ", groups=" + groups +
-                '}';
+        return ": " +
+                "id=" + id +
+                " nameLesson='" + nameLesson + '\'' +
+                " descriptionLesson='" + descriptionLesson + '\'' + "\n";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Lessons lesson = (Lessons) o;
+        return id == lesson.id && Objects.equals(nameLesson, lesson.nameLesson) && Objects.equals(descriptionLesson, lesson.descriptionLesson);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nameLesson, descriptionLesson);
     }
 }

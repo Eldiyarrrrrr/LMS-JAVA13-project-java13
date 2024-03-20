@@ -1,15 +1,22 @@
 package service;
 
+import group.Lessons;
+import group.Student;
+
+
+import java.util.List;
+
 public interface StudentService {
-    void addNewStudent();
 
-    void updateStudent();
+    List<Student> addStudent(String groupName);
 
-    void findStudent();
+    String upDateStudentName(String email);
 
-    void getAllStudentByGroupName();
+    Student findStudent(String studentName);
 
-    void getAllStudentLesson();
+    List<Student> getAllStudentsByGroup(String groupName);
 
-    void deleteStudentByEmail();
+    String deleteStudent(String email);
+
+    List<Lessons> getAllLessonsStudent(long id);
 }

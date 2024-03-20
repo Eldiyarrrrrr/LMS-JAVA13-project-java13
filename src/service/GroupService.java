@@ -2,14 +2,18 @@ package service;
 
 import group.Group;
 
+
 import java.util.List;
 
 public interface GroupService {
-    List<Group> addNewGroups();
 
-    public Group getGroup();
+    List<Group> addGroup();
 
-    public Group updateGroup();
+    List<Group> getAllGroups();
 
-    public List<Group> getAllGroup();
+    Group getGroupByName(String groupName);
+
+    String upDateGroup(String groupName);
+
+    String deleteGroup(String groupName);
 }
